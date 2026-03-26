@@ -4,14 +4,17 @@ include "class.php";
 $hasil = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $data = new Biodata(
-        $_POST['firstname'],
-        $_POST['lastname'],
-        $_POST['phone'],
-        $_POST['address']
-    );
+    $firstname = $_POST['firstname'] ?? '';
+    $lastname  = $_POST['lastname'] ?? '';
+    $phone     = $_POST['phone'] ?? '';
+    $address   = $_POST['address'] ?? '';
 
-    $hasil = $data->tampilkan();
+    if (!empty($firstname) && !empty($lastname) && !empty($phone) && !empty($address)) {
+        $data = new Biodata($firstname, $lastname, $phone, $address);
+        $hasil = $data->tampilkan();
+    } else {
+        $hasil = "<div class='result'><p>Semua field harus diisi.</p></div>";
+    }
 }
 ?>
 
@@ -25,13 +28,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container">
-        <h2>Input Form</h2>
+        <h2>Input Form Biodata</h2>
 
         <form method="POST" action="">
-            <input type="text" name="firstname" placeholder="Firstname" required>
-            <input type="text" name="lastname" placeholder="Lastname" required>
-            <input type="text" name="phone" placeholder="Phone Number" required>
-            <textarea name="address" placeholder="Address" required></textarea>
+            <label>Firstname</label>
+            <input type="text" name="firstname" placeholder="Masukkan firstname" required>
+
+            <label>Lastname</label>
+            <input type="text" name="lastname" placeholder="Masukkan lastname" required>
+
+            <label>Phone Number</label>
+            <input type="text" name="phone" placeholder="Masukkan nomor HP" required>
+
+            <label>Address</label>
+            <textarea name="address" placeholder="Masukkan alamat" required></textarea>
+
             <button type="submit">Submit</button>
         </form>
 
