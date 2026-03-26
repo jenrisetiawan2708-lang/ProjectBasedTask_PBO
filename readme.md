@@ -1,9 +1,9 @@
 # Project Form PHP
 
 ## Anggota Kelompok
-- Jenri (Ketua)
-- Raja
 - Ardli
+- Jenri
+- Raja
 
 ## Deskripsi Project
 Project ini merupakan form input sederhana menggunakan PHP.
@@ -25,7 +25,7 @@ Setelah tombol submit ditekan, data akan ditampilkan di halaman.
 1. Simpan folder project di `htdocs`
 2. Jalankan Apache di XAMPP
 3. Buka browser
-4. Akses `http://localhost/nama-folder-project`
+4. Akses `http://localhost/Project_BasedTask_Jenri`
 
 ## Konsep
 Project ini menggunakan:
